@@ -1,0 +1,31 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"
+  
+# OpenRouter API Keys
+[build.environment]
+  VITE_OPENROUTER_API_KEY = "${VITE_OPENROUTER_API_KEY}"
+  VITE_OPENROUTER_API_KEY_2 = "${VITE_OPENROUTER_API_KEY_2}"
+  VITE_OPENROUTER_API_KEY_3 = "${VITE_OPENROUTER_API_KEY_3}"
+  VITE_OPENROUTER_API_KEY_4 = "${VITE_OPENROUTER_API_KEY_4}"
+  VITE_OPENROUTER_API_KEY_5 = "${VITE_OPENROUTER_API_KEY_5}"
+  VITE_OPENROUTER_API_KEY_6 = "${VITE_OPENROUTER_API_KEY_6}"
+
+# Required for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  command = "vite"
+  targetPort = 5173
+  publish = "dist"
+  autoLaunch = false
